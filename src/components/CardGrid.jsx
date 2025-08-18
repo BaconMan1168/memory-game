@@ -7,6 +7,12 @@ export default function CardGrid(){
         "GGojpBZaxHNkQTpsGO",
         "l7emOdzh4LcUx133Pl",
         "a5viI92PAF89q",
-        
+
     ]
+
+    return (
+        gifIds.map(id => 
+            <MemoryCard gifId={id} />
+        )
+    )
 }
