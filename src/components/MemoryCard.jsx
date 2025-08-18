@@ -1,4 +1,4 @@
-import { useState } from "react"
+
 
 export default function MemoryCard({gifId}){
     const gif = fetch(`https://api.giphy.com/v1/gifs/${gifId}?api_key=3jCZ9tx5mumrMUeoRZXCygZzChJIb82z`).then(
