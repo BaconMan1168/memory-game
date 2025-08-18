@@ -1,7 +1,7 @@
-import {useState} from "react"
+
 import MemoryCard from "./MemoryCard.jsx"
 
-export default function CardGrid(){
+export default function CardGrid({clicked, onClick}){
     const gifIds = [
         "9hR8Dv4tYNYeWriXXC",
         "GGojpBZaxHNkQTpsGO",
@@ -10,9 +10,23 @@ export default function CardGrid(){
 
     ]
 
+    function handleClick(clickedId){
+        const copy = clicked.slice();
+        copy.push(clickedId);
+        onClick(copy);
+    }
+
     return (
-        gifIds.map(id => 
-            <MemoryCard key={`id-${id}`} gifId={id} />
-        )
+        gifIds.map(id => {
+            if (clicked.includes(id)){
+                <MemoryCard key={`id-${id}`} gifId={id} isClicked={true} onClick={handleClick} />
+            }
+            else{
+                <MemoryCard key={`id-${id}`} gifId={id} isClicked={false} onClick={handleClick} />
+            }
+            
+        })
+            
+        
     )
 }

@@ -1,11 +1,9 @@
 import {useState} from "react";
 
-export default function MemoryCard({gifId}){
-    const [isClicked, setIsClicked] = useState(false);
-
+export default function MemoryCard({gifId, isClicked, onClick}){
     function handleClick(){
         if (!isClicked){
-            setIsClicked(true)
+            onClick(gifId);
         }
     }
 
