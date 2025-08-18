@@ -12,7 +12,7 @@ export default function CardGrid(){
 
     return (
         gifIds.map(id => 
-            <MemoryCard gifId={id} />
+            <MemoryCard key={`id-${id}`} gifId={id} />
         )
     )
 }
