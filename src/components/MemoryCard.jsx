@@ -7,7 +7,7 @@ export default function MemoryCard({gifId}){
 
     return (
         <div className="card">
-            <img src={gif} alt={"Invincible flying"}></img>
+            <img src={gif} alt=""></img>
             <h2>{"Invincible"}</h2>
         </div>
     )
