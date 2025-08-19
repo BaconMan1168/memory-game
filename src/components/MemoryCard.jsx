@@ -1,22 +1,28 @@
+import {useState, useEffect} from "react"
+
+
 export default function MemoryCard({gifId, isClicked, onClick}){
+    const [gif, setGif] = useState({ url: "", title: "" });
+
     function handleClick(){
-        if (!isClicked){
-            onClick(gifId, false);
-        }
-        else {
-            onClick(gifId, true)
-        }
+        onClick(gifId, isClicked);
     }
 
-
-    const gif = fetch(`https://api.giphy.com/v1/gifs/${gifId}?api_key=3jCZ9tx5mumrMUeoRZXCygZzChJIb82z`).then(
-        res => res.json()
-    ).then(data => { return {imgSrc: data.data.images.original.url, imgName: data.data.title}})
+    useEffect(() => {
+        fetch(`https://api.giphy.com/v1/gifs/${gifId}?api_key=3jCZ9tx5mumrMUeoRZXCygZzChJIb82z`)
+        .then(res => res.json())
+        .then(data => {
+            setGif({
+            url: data.data.images.original.url,
+            title: data.data.title
+            });
+        });
+    }, [gifId]);
 
     return (
         <div className="card" onClick={handleClick}>
-            <img src={gif.imgSrc} alt=""></img>
-            <h2>{gif.imgName}</h2>
+            <img src={gif.url} alt=""></img>
+            <h2>{gif.title}</h2>
         </div>
     )
 }
