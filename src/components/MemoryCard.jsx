@@ -1,9 +1,10 @@
-import {useState} from "react";
-
 export default function MemoryCard({gifId, isClicked, onClick}){
     function handleClick(){
         if (!isClicked){
-            onClick(gifId);
+            onClick(gifId, false);
+        }
+        else {
+            onClick(gifId, true)
         }
     }
 

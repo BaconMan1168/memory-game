@@ -1,7 +1,6 @@
-
 import MemoryCard from "./MemoryCard.jsx"
 
-export default function CardGrid({clicked, onClick}){
+export default function CardGrid({clicked, onClick, currScore, onScoreChange}){
     const gifIds = [
         "9hR8Dv4tYNYeWriXXC",
         "GGojpBZaxHNkQTpsGO",
@@ -10,10 +9,19 @@ export default function CardGrid({clicked, onClick}){
 
     ]
 
-    function handleClick(clickedId){
-        const copy = clicked.slice();
-        copy.push(clickedId);
-        onClick(copy);
+    function handleClick(clickedId, alreadyClicked){
+        if (alreadyClicked){
+            const empty = [];
+            onClick(empty);
+            onScoreChange(0);
+        }
+        else {
+            const copy = clicked.slice();
+            copy.push(clickedId);
+            onClick(copy);
+            onScoreChange(currScore + 1);
+        }
+        
     }
 
     return (
