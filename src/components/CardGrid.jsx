@@ -30,16 +30,19 @@ export default function CardGrid({clicked, onClick, currScore, onScoreChange}){
     }
 
     return (
-        gifIds.map(id => {
-            
+        <div className="grid">
+            {gifIds.map(id => {
+
             if (clicked.includes(id)){
                 return <MemoryCard key={`id-${id}`} gifId={id} isClicked={true} onClick={handleClick} />
             }
             else{
                 return <MemoryCard key={`id-${id}`} gifId={id} isClicked={false} onClick={handleClick} />
             }
-            
-        })
+
+            })}
+        </div>
+        
             
         
     )

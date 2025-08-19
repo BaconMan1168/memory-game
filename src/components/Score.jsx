@@ -11,8 +11,8 @@ export default function Score({scoreNum}){
 
     return (
         <div>
-            <div>{`Score: ${scoreNum}`}</div>
-            <div>{`Best Score: ${bestScore}`}</div>
+            <h2>{`Score: ${scoreNum}`}</h2>
+            <h2>{`Best Score: ${bestScore}`}</h2>
         </div>
         
     )
