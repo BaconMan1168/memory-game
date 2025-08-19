@@ -10,7 +10,12 @@ export default function CardGrid({clicked, onClick, currScore, onScoreChange}){
     ]
 
     function handleClick(clickedId, alreadyClicked){
-        if (alreadyClicked){
+        if (clicked.length === 4){
+            const empty = [];
+            onClick(empty);
+            onScoreChange(currScore + 1);
+        }
+        else if (alreadyClicked){
             const empty = [];
             onClick(empty);
             onScoreChange(0);
